@@ -26,6 +26,9 @@ class Product
     #[ORM\Column(nullable: false, options: ["default" => false])]
     private ?bool $weighted = null;
 
+    #[ORM\Column(nullable: false, options: ["default" => 0])]
+    private ?float $stock = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Product
     public function setWeighted(bool $weighted): static
     {
         $this->weighted = $weighted;
+
+        return $this;
+    }
+
+    public function getStock(): ?float
+    {
+        return $this->stock;
+    }
+
+    public function setStock(float $stock): static
+    {
+        $this->stock = $stock;
 
         return $this;
     }

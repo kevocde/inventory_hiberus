@@ -20,6 +20,9 @@ class InventoryController extends AbstractController
             new ArrayProductPresenter()
         );
 
-        return $this->json($userCase->execute());
+        return $this->json([
+            'products' => $userCase->execute(),
+            'shoppingCart' => []
+        ]);
     }
 }
